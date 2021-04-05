@@ -1,0 +1,23 @@
+[33mcommit be23aef5b0bffb5ab79bd22e391a929dd1fb4c74[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: sysbian <liushuaidejia@qq.com>
+Date:   Mon Apr 5 11:56:53 2021 +0800
+
+    install Plugs
+
+[33mcommit 04550ae5086d725a5f6472c93c4a31d50abc0f6e[m
+Author: sysbian <liushuaidejia@qq.com>
+Date:   Mon Apr 5 11:51:26 2021 +0800
+
+    vue.config
+
+[33mcommit e1f284b0ce079716d4defb73de46239b26166c54[m
+Author: sysbian <liushuaidejia@qq.com>
+Date:   Mon Apr 5 11:39:35 2021 +0800
+
+    vue init and install vuex vue-router
+
+[33mcommit 9031bd709a680046cde05ca9d39e670f8c3dd137[m
+Author: yizhishuai <42272807+yizhishuai@users.noreply.github.com>
+Date:   Mon Apr 5 10:57:58 2021 +0800
+
+    Initial commit
