@@ -1,9 +1,5 @@
-/**
- * Storage封装
- */
 const  STORAGE_KEY = 'mall';
 export default{
-  // 存储值
   setItem(key,value,module_name){
     if (module_name){
       let val = this.getItem(module_name);
@@ -12,10 +8,10 @@ export default{
     }else{
       let val = this.getStorage();
       val[key] = value;
-      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(val));
+      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(val));  //重新写入（不带模块名）
     }
   },
-  // 获取某一个模块下面的属性
+  //获取user下面的userName
   getItem(key,module_name){
     if (module_name){
       let val = this.getItem(module_name);

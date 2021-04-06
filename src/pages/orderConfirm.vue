@@ -1,6 +1,6 @@
 <template>
     <div>
-       orderCofrim
+       orderCofirm
     </div>
 </template>
 
