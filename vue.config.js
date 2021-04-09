@@ -8,11 +8,38 @@ module.exports = {
                 target: 'http://mall-pre.springboot.cn',    //目标服务器 host
                 changeOrigin: true,     //默认false，是否需要改变原始主机头为目标URL
                 pathRewrite: {
-                    '/api': ''     // 重写请求，比如我们源访问的是/api，那么请求会被解析为空
+                    '^/api': ''     // 重写请求，比如我们源访问的是/api，那么请求会被解析为空
                 },
             }
         }
     },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // publicPath:'/app',       //每个文件都加一个前缀/app
     // outputDir:'dist',        //打包的文件夹名称
     // indexPath:'index2.html',     //单页面命名

@@ -10,7 +10,7 @@
                 <ul class="products" v-for="(item,i) in menuList" :key="i">
                   <li class="product" v-for="(sub,j) in item" :key="j">
                     <a :href="sub?'/#/product/'+sub.id:''">
-                      <img v-lazy="sub?sub.image:'/imgs/item-box-1.png'" alt />
+                      <img src="sub?sub.image:'/imgs/item-box-1.png'" alt />
                       {{sub?sub.name:'小米CC9'}}
                     </a>
                   </li>
@@ -43,7 +43,7 @@
         <swiper :options="swiperOptions">
           <swiper-slide v-for="(item,index) in swiperList" :key="index">
             <a :href="'/#/product/' + item.id">
-              <img v-lazy="item.image" alt />
+              <img v-bind:src="item.image" alt />
             </a>
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
@@ -56,7 +56,7 @@
 
       <div class="banner">
         <a :href="'/#/product/' + banner.id">
-          <img v-lazy="banner.image" alt />
+          <img v-bind:src="banner.image" alt />
         </a>
       </div>
     </div>
@@ -72,9 +72,8 @@
           <div class="list-box">
             <div class="list" v-for="(arr,i) in phoneList" :key="i">
               <div class="item" v-for="(item,j) in arr" :key="j">
-                <span :class="{'new-pro':j%2==0}">新品</span>
                 <div class="item-img">
-                  <img v-lazy="item.mainImage" />
+                  <img v-bind:src="item.mainImage" />
                 </div>
                 <h3>{{item.name}}</h3>
                 <div class="item-info">
@@ -107,7 +106,7 @@
 </template>
 
 <script>
-//import ServiceBar from "./../components/ServiceBar";
+
 //import Modal from "./../components/Modal";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 //import "swiper/css/swiper.css";
@@ -211,19 +210,19 @@ export default {
   methods: {
     init() {
       this.axios
-        .get("/products", {
+        .get("/api/products", {             //修改处
           params: {
             categoryId: "100012",
             pageSize: 14
           }
         })
         .then(res => {
-          //res.list = res.list.slice(6, 14);
+          res.list = res.list.slice(6, 14);
           this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
         });
     },
     addCart(id) {
-      if(this.$cookie.get('userId')){
+      if(this.$cookie.get('userId')){                //监控点
         this.axios
         .post("/carts", {
           productId: id,
@@ -359,13 +358,13 @@ export default {
       color: #333333;
     }
     .wraper {
-      height: 619px;
+      height: 650px;
       display: flex;
       .banner {
         margin-right: 14px;
         a {
           width: 224px;
-          height: 619px;
+          height: 650px;
           img {
             display: inline-block;
             width: 100%;
@@ -383,35 +382,21 @@ export default {
             margin-bottom: 0;
           }
           .item {
-            height: 302px;
+            height: 330px;
             width: 236px;
             background-color: #ffffff;
             text-align: center;
-            span {
-              display: inline-block;
-              width: 67px;
-              height: 24px;
-              line-height: 24px;
-              color: #ffffff;
-              //设置不同情况不同样式
-              &.new-pro {
-                background-color: #7ecf68;
-              }
-              &.kill-pro {
-                background-color: #e82626;
-              }
-            }
             .item-img {
               img {
                 width: 100%;
-                height: 195px;
+                height: 180px;
                 display: inline-block;
               }
             }
             .item-info {
               color: #999999;
-              margin-bottom: 10px;
-              margin-top: 6px;
+              margin-bottom: 0px;
+              margin-top: 3px;
             }
             .item-price {
               cursor: pointer;
