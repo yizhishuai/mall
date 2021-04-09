@@ -168,6 +168,9 @@
   @import "./../assets/scss/config.scss";
 
   .header {
+    a{
+      text-decoration: none;
+    }
     .nav-topbar {
       height: 39px;
       line-height: 39px;
@@ -210,8 +213,8 @@
 
         .header-logo {
           display: inline-block;
-          width: 55px;
-          height: 55px;
+          width: 90px;
+          height: 90px;
           background-color: $colorA;
 
           a {

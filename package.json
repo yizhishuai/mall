@@ -24,6 +24,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.0",
     "sass-loader": "^8.0.2",
+    "swiper": "^6.5.5",
     "vue-awesome-swiper": "^4.1.1",
     "vue-axios": "^3.2.4",
     "vue-cookie": "^1.1.4",
