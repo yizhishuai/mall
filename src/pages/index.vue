@@ -102,14 +102,15 @@
         <p>商品添加成功！</p>
       </template>
     </modal>
+    <modal></modal>
   </div>
+  
 </template>
 
 <script>
 
-//import Modal from "./../components/Modal";
+import Modal from "./../components/Modal";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-//import "swiper/css/swiper.css";
 import 'swiper/swiper-bundle.css'
 
 
@@ -118,8 +119,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-   // ServiceBar,
-    //Modal
+    Modal
   },
   data() {
     return {
@@ -210,7 +210,7 @@ export default {
   methods: {
     init() {
       this.axios
-        .get("/api/products", {             //修改处
+        .get("/products", {            
           params: {
             categoryId: "100012",
             pageSize: 14
@@ -222,22 +222,24 @@ export default {
         });
     },
     addCart(id) {
-      if(this.$cookie.get('userId')){                //监控点
-        this.axios
-        .post("/carts", {
-          productId: id,
-          selected: true
-        })
-        .then((res) => {   //cartProductVoList: 0购物车默认值为0
-          this.showModal = true;
-          this.$store.dispatch('saveCartCount',res.cartTotalQuantity);   //实时更新购物车数量
-        })
-        .catch(() => {
-          this.showModal = true;
-        });
-      }else{
-        this.$router.push('/login')
-      }
+      this.id = id;
+      this.showModal = true;
+      // if(this.$cookie.get('userId')){                //监控点
+      //   this.axios
+      //   .post("/carts", {
+      //     productId: id,
+      //     selected: true
+      //   })
+      //   .then((res) => {   //cartProductVoList: 0购物车默认值为0
+      //     this.showModal = true;
+      //     this.$store.dispatch('saveCartCount',res.cartTotalQuantity);   //实时更新购物车数量
+      //   })
+      //   .catch(() => {
+      //     this.showModal = true;
+      //   });
+      // }else{
+      //   this.$router.push('/login')
+      // }
       
     },
     gotoCart() {
