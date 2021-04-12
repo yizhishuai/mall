@@ -43,7 +43,7 @@ export default {
       let { username, password, email } = this;
       let reg =  /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
       if (!reg.test(email)) {
-        this.$message.error("邮箱格式不正确");
+        alert("邮箱格式不正确");
         return;
       }
       this.axios
@@ -53,8 +53,7 @@ export default {
           email
         })
         .then(() => {
-          alert('注册成功')
-          //this.$message.success("注册成功");            // 修改
+          alert("注册成功");          
           this.$router.push("/login");
         });
     }

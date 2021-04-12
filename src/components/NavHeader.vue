@@ -85,7 +85,7 @@
 </template>
 
 <script>
- // import { mapState } from 'vuex';
+  import { mapState } from 'vuex';
   export default {
     name: "nav-header",
     data() {
@@ -95,7 +95,7 @@
       };
     },
     computed: {
-      // ...mapState(['username', 'cartcount'])
+       ...mapState(['username', 'cartcount'])
     },
     //局部过滤器
     filters: {
@@ -149,7 +149,7 @@
       offlogin() {
         //退出登陆时把名字和购物车数量设为空，弹出退出信息，userid失效
         this.axios.post("/user/logout").then(() => {
-          this.$message.success('退出成功');
+          alert('退出成功');
           this.$cookie.set('userId', '', { expires: '-1' });  //关闭的窗口的时候userid失效
           this.$store.dispatch('saveUserName', '');
           this.$store.dispatch('saveCartCount', '0');
