@@ -1,8 +1,8 @@
 <template>
   <div class="order-list">
-    <order-header title="订单列表">
+    <order-header title="订单管理">
       <template v-slot:tips>
-        <span>请谨防钓鱼链接或诈骗电话，了解更多></span>
+        <span>管理员订单管理页面</span>
       </template>
     </order-header>
     <div class="container">
@@ -39,7 +39,7 @@
             <a href="javascript:;">{{order.statusDesc}}</a>
           </div>
           <div class="good-state fr" v-else>
-            <a href="javascript:;" @click="goPay(order.orderNo)">待支付</a>
+            <a href="javascript:;" @click="goPay(order.orderNo)">管理</a>
             <!--  <a href="javascript:;" @click="goPay(order.orderNo)">{{order.statusDesc}}</a> -->
           </div>
         </div>
@@ -63,7 +63,7 @@
 import { Pagination } from "element-ui";
 //import infiniteScroll from "vue-infinite-scroll";
 export default {
-  name: "order-list",
+  name: "manage",
   components: {
     OrderHeader,
     // NoData,

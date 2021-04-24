@@ -5,7 +5,7 @@ module.exports = {
         /*代理*/
         proxy: {
             '/api': {
-                target: 'http://mall-pre.springboot.cn',    //目标服务器 host
+                target: 'http://localhost:8080',    //目标服务器 host   http://mall-pre.springboot.cn
                 changeOrigin: true,     //默认false，是否需要改变原始主机头为目标URL
                 pathRewrite: {
                     '^/api': ''     // 重写请求，比如我们源访问的是/api，那么请求会被解析为空
@@ -13,32 +13,6 @@ module.exports = {
             }
         }
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // publicPath:'/app',       //每个文件都加一个前缀/app
     // outputDir:'dist',        //打包的文件夹名称

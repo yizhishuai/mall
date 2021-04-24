@@ -31,9 +31,9 @@
             <div class="children">
               <ul>
                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                  <a :href="'/#/product' + item.id" target="_blank">
+                  <a :href="'/#/product/' + item.id" target="_blank">
                     <div class="product-img">
-                      <img v-lazy="item.mainImage" :alt="item.subtitle" />
+                      <img :src="item.mainImage" :alt="item.subtitle" />
                     </div>
                     <div class="product-name">{{item.name}}</div>
                     <div class="product-price">{{item.price | currency}}</div>
@@ -46,26 +46,10 @@
             <span>热门平板电脑</span>
             <div class="children">
               <ul>
-                <li class="product" v-for="(item,index) in RedMi" :key="index">
+                <li class="product" v-for="(item,index) in padList" :key="index">
                   <a :href="'/#/product' + item.id" target="_blank">
                     <div class="product-img">
-                      <img v-lazy="item.mainImage" :alt="item.subtitle" />
-                    </div>
-                    <div class="product-name">{{item.name}}</div>
-                    <div class="product-price">{{item.price | currency}}</div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="item-menu">
-            <span>热门相机</span>
-            <div class="children">
-              <ul>
-                <li class="product" v-for="(item,index) in RedMi" :key="index">
-                  <a :href="'/#/product' + item.id" target="_blank">
-                    <div class="product-img">
-                      <img v-lazy="item.mainImage" :alt="item.subtitle" />
+                      <img :src="item.mainImage" :alt="item.subtitle" />
                     </div>
                     <div class="product-name">{{item.name}}</div>
                     <div class="product-price">{{item.price | currency}}</div>
@@ -91,7 +75,7 @@
     data() {
       return {
         phoneList: [],
-        RedMi: []
+        padList: []
       };
     },
     computed: {
@@ -114,19 +98,19 @@
       if (params && params.from == 'login') {
         this.getCartCount();
       }
+      
     },
     methods: {
       getProductList() {
         this.axios
           .get("/products", {
-            params: {
-              categoryId: "100012"
-            }
+            
           })
           .then(res => {
-            if (res.list.length > 6) {
+            console.log(res.list)
+            if (res.list.length > 4) {
               this.phoneList = res.list.slice(0, 6);
-              this.RedMi = res.list.slice(6, 12);
+              this.padList = res.list.slice(2, 8);
             }
           });
       },
@@ -154,6 +138,8 @@
           this.$store.dispatch('saveUserName', '');
           this.$store.dispatch('saveCartCount', '0');
         })
+        
+        
       },
       goOrderList(){
         this.$router.push('/order/list')
@@ -191,7 +177,7 @@
         .my-cart {
           width: 110px;
           text-align: center;
-          background-color: #ff6600;
+          background-color: $colorA;
           color: #ffffff;
           margin-right: 0px;
 

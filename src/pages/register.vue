@@ -41,7 +41,7 @@ export default {
   methods: {
     register() {
       let { username, password, email } = this;
-      let reg =  /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+      let reg =  /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
       if (!reg.test(email)) {
         alert("邮箱格式不正确");
         return;

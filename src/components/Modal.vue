@@ -53,4 +53,12 @@
     @import './../assets/scss/mixin.scss';
     @import './../assets/scss/config.scss';
     @import './../assets/scss/modal.scss';
+    input{
+    margin-top: 5px;
+    
+    }
+    select{
+    margin-bottom: 10px;
+    margin-top:10px;
+    }
 </style>

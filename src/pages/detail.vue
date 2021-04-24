@@ -214,7 +214,7 @@ export default {
           cursor: pointer;
           box-sizing: border-box;
           &.checked {
-            border: 1px solid #ff6600;
+            border: 1px solid $colorA;
             color: $colorA;
           }
           .color {

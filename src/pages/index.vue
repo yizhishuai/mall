@@ -10,8 +10,9 @@
                 <ul class="products" v-for="(item,i) in menuList" :key="i">
                   <li class="product" v-for="(sub,j) in item" :key="j">
                     <a :href="sub?'/#/product/'+sub.id:''">
-                      <img src="sub?sub.image:'/imgs/item-box-1.png'" alt />
-                      {{sub?sub.name:'小米CC9'}}
+                      <img src="/imgs/item-box-1.png" alt />
+                      <!-- sub?sub.image:' -->
+                      {{sub?sub.name:'小米10s'}}
                     </a>
                   </li>
                 </ul>
@@ -24,7 +25,7 @@
               <a href="javascript:;">笔记本 平板</a>
             </li>
             <li class="menu-item">
-              <a href="javascript:;">家电 插线板</a>
+              <a href="javascript:;">家电 插线板</a> 
             </li>
             <li class="menu-item">
               <a href="javascript:;">出行 穿戴</a>
@@ -65,13 +66,14 @@
         <h2>手机</h2>
         <div class="wraper">
           <div class="banner">
-            <a href="/#/product/35">
+            <a href="/#/product/4">
               <img src='/imgs/mix-fold.png' alt />
             </a>
           </div>
           <div class="list-box">
             <div class="list" v-for="(arr,i) in phoneList" :key="i">
               <div class="item" v-for="(item,j) in arr" :key="j">
+                <a :href="'/#/product/' + item.id" target="_blank">
                 <div class="item-img">
                   <img v-bind:src="item.mainImage" />
                 </div>
@@ -79,6 +81,7 @@
                 <div class="item-info">
                   <p>{{item.subtitle}}</p>
                 </div>
+                </a>
                 <div class="item-price">
                   <p @click="addCart(item.id)">{{item.price}}元</p>
                 </div>
@@ -88,7 +91,6 @@
         </div>
       </div>
     </div>
-    <service-bar></service-bar>
     <modal
       title="友情提示"
       btnType="1"
@@ -149,19 +151,19 @@ export default {
       },
       swiperList: [
         {
-          id: "42",
+          id: "4",
           image: "/imgs/slider/slide-1.jpg"
         },
         {
-          id: "45",
+          id: "3",
           image: "/imgs/slider/slide-2.jpg"
         },
         {
-          id: "46",
+          id: "2",
           image: "/imgs/slider/slide-3.jpg"
         },
         {
-          id: "",
+          id: "1",
           image: "/imgs/slider/slide-4.jpg"
         },
         {
@@ -211,14 +213,19 @@ export default {
     init() {
       this.axios
         .get("/products", {            
-          params: {
-            categoryId: "100012",
-            pageSize: 14
-          }
+          // params: {
+          //   categoryId: "100011",
+          //   pageSize: 14
+          // }
         })
         .then(res => {
-          res.list = res.list.slice(6, 14);
+          // res.list = res.list.slice(6, 14);
+          // this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
+          //console.log(res.list);
+           res.list = res.list.slice(0, 8);
+           console.log(res.list);
           this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
+          console.log(this.phoneList)
         });
     },
     addCart(id) {
@@ -405,7 +412,7 @@ export default {
               height: 30px;
               p {
                 display: inline-block;
-                color: #f20a0a;
+                color: $colorA;
                 font-size: 14px;
                 font-weight: bold;
                 &:after {

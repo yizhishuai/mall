@@ -11,6 +11,7 @@ export default {
   components: {
   },
   data(){
+    return{}
   },
   mounted() {
       if (this.$cookie.get('userId')) {

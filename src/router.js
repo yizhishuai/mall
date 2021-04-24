@@ -12,7 +12,7 @@ import OrderPay from './pages/orderPay'
 import Alipay from './pages/alipay'
 import Login from './pages/login'
 import Register from './pages/register'
-
+import Manage from './pages/manage'
 
 
 
@@ -83,6 +83,11 @@ export default new Router({
             path: '/register',
             name: 'register',
             component: Register,
+        },
+        {
+            path: '/manage',
+            name: 'manage',
+            component: Manage,
         },
     ]
 })

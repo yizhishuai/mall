@@ -28,7 +28,7 @@
                 ></span>
               </div>
               <div class="item-name">
-                <img src="item.productMainImage" alt />
+                <img :src="item.productMainImage" alt />
                 <span>{{item.productName + ',' + item.productSubtitle}}</span>
               </div>
               <div class="item-price">{{item.productPrice}}</div>
