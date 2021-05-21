@@ -228,6 +228,7 @@ export default {
         alert('请选择一个收货地址')
         return;
       }
+      console.log(item)
       this.axios.post('/orders',{
         shippingId:item.id
       }).then((res)=>{

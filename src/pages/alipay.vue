@@ -31,7 +31,7 @@
         },
         methods: {
             submitPay() {
-                this.axios.post('/pay', {
+                this.axios.post('http://mall-pre.springboot.cn/api/pay', {
                     orderId: this.orderId,
                     orderName: '数码产品电商平台',
                     amount: 0.01,
